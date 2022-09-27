@@ -16,3 +16,23 @@ sheet = service.spreadsheets()
 result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID, range=SAMPLE_RANGE_NAME).execute()
 values = result.get('values', [])
 
+
+#####
+
+import traceback
+import urllib3
+import xmltodict
+
+def getxml():
+    url = "https://www.cbr.ru/scripts/XML_daily.asp?"
+
+    http = urllib3.PoolManager()
+
+    response = http.request('GET', url)
+    try:
+        data = xmltodict.parse(response.data)
+    except:
+        print("Failed to parse xml from response (%s)" % traceback.format_exc())
+    return data
+
+print(getxml())
