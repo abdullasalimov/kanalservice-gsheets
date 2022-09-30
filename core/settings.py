@@ -4,9 +4,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-ca6+daf0)^#7utl-qyk_h_co4ik%8j)w8!*vij%+f5kjbrmqxy"
 
@@ -25,10 +22,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
-    # Google sheets
-    'gsheets',
-    
+    "gsheets",
+     
     # My apps
     "currency",
 ]
@@ -45,10 +40,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
+import os
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -69,8 +66,12 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "mydb",
+        "USER": "postgres",
+        "PASSWORD": "123",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -116,6 +117,8 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-GSHEETS = {
-    'CLIENT_SECRETS': 'keys.json'
-}
+# Google API Credentials
+CREDENTIAL = 'keys.json'
+FILE_ID = '1Z38ZTvYry5glASyyytFY4FcTB_ckiXcMWPN7b9lRZSM'
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive.metadata']
+SAMPLE_RANGE_NAME = '!B2:D1000'
