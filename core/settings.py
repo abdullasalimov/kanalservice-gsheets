@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "gsheets",
      
     # My apps
     "currency",
@@ -121,4 +120,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CREDENTIAL = 'keys.json'
 FILE_ID = '1Z38ZTvYry5glASyyytFY4FcTB_ckiXcMWPN7b9lRZSM'
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive.metadata']
-SAMPLE_RANGE_NAME = '!B2:D1000'
+SAMPLE_RANGE_NAME = '!A2:D1000'
+
+# Telegram Bot Credentials
+TOKEN = "5309761179:AAEhUhv7yrAFgbPEgciJK6BEg7AzHuf8mGU"

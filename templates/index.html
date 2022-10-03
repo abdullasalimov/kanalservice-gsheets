@@ -5,13 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Kanalservice Exercise</title>
 </head>
 
 <body>
-    {% for value in queryset %}
-    {{value.order_number}} {{value.price_usd}} {{value.delivery_date}}
-    {% endfor %}
+    <div class="container">
+        <!-- Content here -->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Заказ №</th>
+                    <th scope="col">Стоимость,$</th>
+                    <th scope="col">Стоимость,₽</th>
+                    <th scope="col">Срок поставки</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for value in queryset %}
+                <tr>
+                    <th scope="row">{{value.seq_number}}</th>
+                    <td>{{value.order_number}}</td>
+                    <td>{{value.price_usd}}</td>
+                    <td>{{value.price_rub}}</td>
+                    <td>{{value.delivery_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
