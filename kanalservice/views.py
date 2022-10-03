@@ -58,7 +58,7 @@ def index(request):
 
     # If values exists on postgres just update, else create record on postgres  
     for value in values:
-        data, created = Data.objects.update_or_create(order_number=value[1], defaults={
+        Data.objects.update_or_create(order_number=value[1], defaults={
             'seq_number':int(value[0]), 
             'price_usd': value[2], 
             'delivery_date': datetime.strptime(value[3], "%d.%m.%Y"),
