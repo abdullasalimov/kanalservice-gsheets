@@ -1,1 +1,1 @@
-# currency-gsheets
+# kanalservice-gsheets
