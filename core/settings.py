@@ -64,17 +64,24 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "mydb",  # os.environ.get('POSTGRES_NAME'),
+#         "USER": "postgres",  # os.environ.get('POSTGRES_USER'),
+#         "PASSWORD": "123",  # os.environ.get('POSTGRES_PASSWORD'),
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "mydb",  # os.environ.get('POSTGRES_NAME'),
-        "USER": "postgres",  # os.environ.get('POSTGRES_USER'),
-        "PASSWORD": "123",  # os.environ.get('POSTGRES_PASSWORD'),
-        "HOST": "localhost",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlit3', # This is where you put the name of the db file. 
+                 # If one doesn't exist, it will be created at migration time.
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
