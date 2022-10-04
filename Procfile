@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath kanalservice-gsheets core.wsgi:application --log-file -
