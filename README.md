@@ -37,11 +37,11 @@
 
 1. To test app go below site:
 
-    https://django-stripe-app.herokuapp.com/item/
+    https://kanalservice-gsheets.herokuapp.com/
 
 2. To go to admin panel:
 
-    https://django-stripe-app.herokuapp.com/admin/
+    https://kanalservice-gsheets.herokuapp.com/admin/
 
         login:admin
         password:123
