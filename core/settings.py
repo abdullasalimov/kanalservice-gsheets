@@ -10,7 +10,7 @@ SECRET_KEY = "django-insecure-ca6+daf0)^#7utl-qyk_h_co4ik%8j)w8!*vij%+f5kjbrmqxy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-     
     # My apps
     "kanalservice",
 ]
@@ -44,7 +43,7 @@ import os
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -66,10 +65,10 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get('POSTGRES_NAME'),
-        "USER": os.environ.get('POSTGRES_USER'),
-        "PASSWORD": os.environ.get('POSTGRES_PASSWORD'),
-        "HOST": "db",
+        "NAME": "mydb",  # os.environ.get('POSTGRES_NAME'),
+        "USER": "postgres",  # os.environ.get('POSTGRES_USER'),
+        "PASSWORD": "123",  # os.environ.get('POSTGRES_PASSWORD'),
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }
@@ -117,10 +116,10 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Google API Credentials
-CREDENTIAL = 'keys.json'
-FILE_ID = '1Z38ZTvYry5glASyyytFY4FcTB_ckiXcMWPN7b9lRZSM'
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive.metadata']
-SAMPLE_RANGE_NAME = '!A2:D1000'
+CREDENTIAL = "keys.json"
+FILE_ID = "1Z38ZTvYry5glASyyytFY4FcTB_ckiXcMWPN7b9lRZSM"
+SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+SAMPLE_RANGE_NAME = "!A2:D1000"
 
 # Telegram Bot Credentials
 TOKEN = "5309761179:AAEhUhv7yrAFgbPEgciJK6BEg7AzHuf8mGU"
