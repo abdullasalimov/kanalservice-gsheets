@@ -8,8 +8,6 @@ class Data(models.Model):
     price_rub = models.DecimalField(max_digits=10, decimal_places=2)
     delivery_date = models.DateField()
     updated_at = models.DateTimeField(auto_now=True)
-    notification_recevied = models.BooleanField(default=False)
 
     def __str__(self):
         return self.order_number
-
