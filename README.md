@@ -32,16 +32,3 @@
 10. To recieve telegram notification if delivery time expired, just go to below bot on telegram app and just /start it and when web app refreshes it will automaticaly sends notification about outdated orders to users of bot:
 
         @kanalservicenotificationbot
-
-## App is live on Heroku server to test
-
-1. To test app go below site:
-
-    https://kanalservice-gsheets.herokuapp.com/
-
-2. To go to admin panel:
-
-    https://kanalservice-gsheets.herokuapp.com/admin/
-
-        login:admin
-        password:123
