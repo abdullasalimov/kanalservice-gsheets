@@ -43,7 +43,7 @@ def currency_rub():
     except:
         print("Failed to parse xml from response (%s)" % traceback.format_exc())
     # return usd
-    return data['ValCurs']['Valute'][10]['Value']
+    return 2.5#data['ValCurs']['Valute'][10]['Value']
 
 # Home page
 def index(request):
@@ -70,7 +70,7 @@ def index(request):
     queryset = Data.objects.order_by('seq_number')
 
     # Filter outdated orders
-    outdated_delivery = Data.objects.filter(delivery_date__lt=datetime.today())
+    #outdated_delivery = Data.objects.filter(delivery_date__lt=datetime.today())
 
     # If outdated orders exist send notification to telegram bot users
     # if outdated_delivery:
