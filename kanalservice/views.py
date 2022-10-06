@@ -43,7 +43,7 @@ def currency_rub():
     except:
         print("Failed to parse xml from response (%s)" % traceback.format_exc())
     # return usd
-    return "2,5"#data['ValCurs']['Valute'][10]['Value']
+    return data['ValCurs']['Valute'][10]['Value']
 
 # Home page
 def index(request):
