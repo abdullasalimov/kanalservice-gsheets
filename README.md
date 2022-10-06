@@ -19,7 +19,7 @@
 
 7. App will start on localhost on port 8000:
 
-        https:\\localhost:8000
+        http://localhost:8000/
 
 8. To recieve telegram notification if delivery time expired, just go to below bot on telegram app and just /start it and when web app refreshes it will automaticaly sends notification about outdated orders to users of bot:
 
