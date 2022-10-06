@@ -14,24 +14,24 @@ import traceback
 import urllib3
 import xmltodict
 
-def send_notification_telegram(order_numbers=[]):
-    messages = []
-    users_id = []
+# def send_notification_telegram(order_numbers=[]):
+#     messages = []
+#     users_id = []
 
-    for order in order_numbers:
-        messages.append(order.order_number)
+#     for order in order_numbers:
+#         messages.append(order.order_number)
     
-    url_users_id = f"https://api.telegram.org/bot{settings.TOKEN}/getUpdates"
+#     url_users_id = f"https://api.telegram.org/bot{settings.TOKEN}/getUpdates"
 
-    for user in requests.get(url_users_id).json()['result']:
-        users_id.append(user['message']['chat']['id'])
+#     for user in requests.get(url_users_id).json()['result']:
+#         users_id.append(user['message']['chat']['id'])
     
-    users_id = list(dict.fromkeys(users_id))
+#     users_id = list(dict.fromkeys(users_id))
     
-    message = f"Срок поставки истек для следующих заказов: {messages}"
-    for user_id in users_id:
-        url = f"https://api.telegram.org/bot{settings.TOKEN}/sendMessage?chat_id={user_id}&text={message}"
-        requests.get(url).json()
+#     message = f"Срок поставки истек для следующих заказов: {messages}"
+#     for user_id in users_id:
+#         url = f"https://api.telegram.org/bot{settings.TOKEN}/sendMessage?chat_id={user_id}&text={message}"
+#         requests.get(url).json()
 
 # Convert XML url to currency data 
 def currency_rub():
@@ -69,12 +69,12 @@ def index(request):
     # Send data to frontend (index.html)
     queryset = Data.objects.order_by('seq_number')
 
-    # Filter outdated orders
-    outdated_delivery = Data.objects.filter(delivery_date__lt=datetime.today())
+    # # Filter outdated orders
+    # outdated_delivery = Data.objects.filter(delivery_date__lt=datetime.today())
 
-    # If outdated orders exist send notification to telegram bot users
-    if outdated_delivery:
-        send_notification_telegram(outdated_delivery)
+    # # If outdated orders exist send notification to telegram bot users
+    # if outdated_delivery:
+    #     send_notification_telegram(outdated_delivery)
 
     return render(request, 'index.html', {'queryset':queryset})
     
