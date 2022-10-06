@@ -1,6 +1,5 @@
 from pathlib import Path
 import django_heroku
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -64,20 +63,28 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "mydb",  # os.environ.get('POSTGRES_NAME'),
+#         "USER": "postgres",  # os.environ.get('POSTGRES_USER'),
+#         "PASSWORD": "123",  # os.environ.get('POSTGRES_PASSWORD'),
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "mydb",  # os.environ.get('POSTGRES_NAME'),
-        "USER": "postgres",  # os.environ.get('POSTGRES_USER'),
-        "PASSWORD": "123",  # os.environ.get('POSTGRES_PASSWORD'),
-        "HOST": "localhost",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "d61vf7f0gu7cd8",  # os.environ.get('POSTGRES_NAME'),
+        "USER": "wmdqvdfqwhdjqs",  # os.environ.get('POSTGRES_USER'),
+        "PASSWORD": "fcbd2138433abf1aa94e3c65c33a77cd43af9c620ae40646758b5f5becbceaab",  # os.environ.get('POSTGRES_PASSWORD'),
+        "HOST": "ec2-54-175-79-57.compute-1.amazonaws.com",
         "PORT": "5432",
     }
 }
 
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES["default"].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -113,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+#STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIR = (os.path.join(BASE_DIR, 'static'))
 
